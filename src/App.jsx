@@ -17,6 +17,7 @@ import { CreateSubject } from './pages/CreateSubject';
 import { Subject } from './pages/Subject';
 import { CreatePaperPattern } from './pages/CreatePaperPattern';
 import { PaperUpload } from './pages/PaperUpload';
+import { Results } from './pages/Results';
 
 
 function App() {
@@ -73,8 +74,12 @@ function App() {
           element: <CreatePaperPattern />,
         },
         {
-          path: "subject/:name/paper-upload/:title",
+          path: "subject/:name/paper-upload/:id",
           element: <PaperUpload />,
+        },
+        {
+          path: "subject/:name/result/:id",
+          element: <Results />,
         }
       ]
     },

@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const hero_animation = useRef(null);
@@ -19,9 +20,9 @@ function Home() {
                     <h2 className='text-lg md:text-2xl mb-3 md:mb-5'>
                         Revolutionizing Education Management - A Comprehensive Solution for Teachers, from Registration to Result Analysis! 🚀📚
                     </h2>
-                    <button className='bg-[#08823F] text-white px-4 py-2 rounded-lg'>
+                    <Link to="/register" className='bg-[#08823F] text-white px-4 py-2 rounded-lg'>
                         Get Started
-                    </button>
+                    </Link>
                 </div>
                 <lottie-player ref={hero_animation} background="transparent" speed="1" style={{ width: "100%", maxWidth: "500px", height: "auto" }} direction="1" mode="normal" loop autoplay></lottie-player>
             </div>

@@ -1,12 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Dashboard() {
+    const navigate = useNavigate();
+
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+
+
+        const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+
+        const isAuthenticated = async () => {
+
+            await axios.get("https://tutorswan-backend.onrender.com/user/me",
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    }
+
+                }).then(function (response) {
+                    console.log(response);
+                    if (response.data) {
+
+                        setUserData(response.data);
+                    }
+                }).catch(function (error) {
+                    console.log(error, "error");
+
+                    navigate.push("/register");
+                    // }
+                    try {
+                        if (error.response.data.detail) {
+                            // navigate.push("/register");
+                        }
+                    }
+                    catch { /* empty */ }
+                });
+
+        }
+
+        if (token) {
+            isAuthenticated();
+        }
+
+        else {
+            navigate("/login");
+        }
+
+    }, []);
 
     return (
         <>
@@ -36,12 +84,19 @@ function Dashboard() {
                                 <div className={`absolute right-10 top-10 z-50 ${isProfileMenuOpen ? "" : "hidden"} my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user`}>
                                     <div className="px-4 py-3" role="none">
                                         <p className="text-sm text-gray-900 dark:text-white" role="none">
-                                            Neil Sims
+                                            {userData ? userData.name : "loading..."}
                                         </p>
                                         <p className="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                            neil.sims@flowbite.com
+                                            {userData ? userData.email : "loading..."}
                                         </p>
                                     </div>
+                                    <ul className="py-1" role="none">
+                                        <li>
+                                            <span className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                Total credits: {userData ? userData.total_credits : "loading..."}
+                                            </span>
+                                        </li>
+                                    </ul>
                                     <ul className="py-1" role="none">
                                         <li>
                                             <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
@@ -79,18 +134,15 @@ function Dashboard() {
                             {
                                 isDropdownOpen &&
                                 <div className="mt-2 space-y-2">
-                                    <Link to="/dashboard/subject/history" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <span className="sr-only">Open user menu</span>
-                                        <span className="flex-1 ms-3 whitespace-nowrap">History</span>
-                                    </Link>
-                                    <Link to="/dashboard/subject/maths" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <span className="sr-only">Open user menu</span>
-                                        <span className="flex-1 ms-3 whitespace-nowrap">Maths</span>
-                                    </Link>
-                                    <Link to="/dashboard/subject/science" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        <span className="sr-only">Open user menu</span>
-                                        <span className="flex-1 ms-3 whitespace-nowrap">Science</span>
-                                    </Link>
+                                    {
+                                        userData ?
+                                            userData.subjects.map((subject, index) => (
+                                                <Link key={index} to={`/dashboard/subject/${subject}`} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                                    <span className="sr-only">Open user menu</span>
+                                                    <span className="flex-1 ms-3 whitespace-nowrap">{subject}</span>
+                                                </Link>
+                                            )) : "loading..."
+                                    }
                                 </div>
                             }
                         </li>
@@ -99,7 +151,7 @@ function Dashboard() {
             </aside>
 
             <div className="p-4 sm:ml-64">
-                <Outlet />
+                <Outlet context={userData} />
             </div>
 
         </>

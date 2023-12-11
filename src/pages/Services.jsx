@@ -26,7 +26,7 @@ function Services() {
                     margin: 'auto',
                 }}
             >
-                <div className='min-w-[300px] border-[1.5px] border-[#CDD7E1] rounded-xl py-4 px-10 max-w-[500px]'>
+                <div className='min-w-[300px] border-[1.5px] border-[#CDD7E1] rounded-xl py-16 px-10 max-w-[500px]'>
                     <div className='mt-4'></div>
                     <Typography level="h2" textAlign="center">Accuracy</Typography>
                     <div className='mt-4'></div>
@@ -45,7 +45,7 @@ function Services() {
                         </ListItem>
                     </List>
                 </div>
-                <div className='min-w-[300px] border-[1.5px] border-[#CDD7E1] rounded-xl py-4 px-10 max-w-[500px]'>
+                <div className='min-w-[300px] border-[1.5px] border-[#CDD7E1] rounded-xl py-16 px-10 max-w-[500px]'>
                     <div className='mt-4'></div>
                     <Typography level="h2" textAlign="center">Efficiency</Typography>
                     <div className='mt-4'></div>
@@ -64,7 +64,7 @@ function Services() {
                         </ListItem>
                     </List>
                 </div>
-                <div className='min-w-[300px] border-[1.5px] border-[#CDD7E1] rounded-xl py-4 px-10 max-w-[500px]'>
+                <div className='min-w-[300px] border-[1.5px] border-[#CDD7E1] rounded-xl py-16 px-10 max-w-[500px]'>
                     <div className='mt-4'></div>
                     <Typography level="h2" textAlign="center">Flexiblity</Typography>
                     <div className='mt-4'></div>

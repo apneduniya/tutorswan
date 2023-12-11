@@ -44,4 +44,8 @@ body::-webkit-scrollbar-thumb {
     border-radius: 40px;
 }
 
+.ant-upload-list-item-actions {
+    display: none;
+}
+
 

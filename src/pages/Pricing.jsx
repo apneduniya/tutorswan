@@ -2,7 +2,6 @@ import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import CardActions from '@mui/joy/CardActions';
-import Chip from '@mui/joy/Chip';
 import Divider from '@mui/joy/Divider';
 import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
@@ -10,6 +9,7 @@ import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import Typography from '@mui/joy/Typography';
 import Check from '@mui/icons-material/Check';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import { Link } from 'react-router-dom';
 
 function Pricing() {
     return (
@@ -68,13 +68,15 @@ function Pricing() {
                             </Typography>
                         </Typography>
                         <div className='w-16'></div>
-                        <Button
-                            variant="soft"
-                            color="neutral"
-                            endDecorator={<KeyboardArrowRight />}
-                        >
-                            Start now
-                        </Button>
+                        <Link to="/register">
+                            <Button
+                                variant="soft"
+                                color="neutral"
+                                endDecorator={<KeyboardArrowRight />}
+                            >
+                                Start now
+                            </Button>
+                        </Link>
                     </CardActions>
                 </Card>
                 <Card
@@ -84,9 +86,9 @@ function Pricing() {
                 // invertedColors
                 // sx={{ bgcolor: 'neutral.900' }}
                 >
-                    <Chip size="sm" variant="outlined">
+                    {/* <Chip size="sm" variant="outlined">
                         MOST POPULAR
-                    </Chip>
+                    </Chip> */}
                     <Typography level="h2">Startup</Typography>
                     <Divider inset="none" />
                     <List
@@ -119,13 +121,21 @@ function Pricing() {
                     <Divider inset="none" />
                     <CardActions>
                         <Typography level="title-lg" sx={{ mr: 'auto' }}>
-                                ₹30 {' '}
+                            ₹30 {' '}
                             <Typography fontSize="sm" textColor="text.tertiary">
                                 / page
                             </Typography>
                         </Typography>
                         <div className='w-16'></div>
-                        <Button endDecorator={<KeyboardArrowRight />} className='!bg-[#08823F]'>Start now</Button>
+                        <Link to="/register">
+                            <Button
+                                variant="soft"
+                                color="neutral"
+                                endDecorator={<KeyboardArrowRight />}
+                            >
+                                Start now
+                            </Button>
+                        </Link>
                     </CardActions>
                 </Card>
                 <Card size="lg" variant="outlined">
@@ -164,13 +174,15 @@ function Pricing() {
                             </Typography>
                         </Typography>
                         <div className='w-16'></div>
-                        <Button
-                            variant="soft"
-                            color="neutral"
-                            endDecorator={<KeyboardArrowRight />}
-                        >
-                            Start now
-                        </Button>
+                        <Link to="/register">
+                            <Button
+                                variant="soft"
+                                color="neutral"
+                                endDecorator={<KeyboardArrowRight />}
+                            >
+                                Start now
+                            </Button>
+                        </Link>
                     </CardActions>
                 </Card>
             </Box>
