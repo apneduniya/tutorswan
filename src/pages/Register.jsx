@@ -104,7 +104,7 @@ function Register() {
                             <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
                             Tutor Swan
                         </Link>
-                        <div className="lg:h-[80%] h-[800px] w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-x-auto">
+                        <div className="lg:h-[80%] h-[900px] w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-x-auto">
                             <div className="p-6 space-y-4 md:space-y-6 sm:p-8 overflow-auto">
                                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                     Create and account
