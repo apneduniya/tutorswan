@@ -97,19 +97,19 @@ function Register() {
     return (
         <>
             <Spin spinning={loading}>
-                <div className="bg-[url(https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/background.jpg)] bg-blend-multiply bg-fit w-full h-screen overflow-hidden">
+                <div className="bg-[url(https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/background.jpg)] bg-blend-multiply bg-cover w-full h-screen overflow-hidden">
                     <div className="absolute top-0 left-0 w-full inset-0 bg-black bg-opacity-[.42] z-1"></div>
                     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative z-2 overflow-visible">
                         <Link to="/" className="flex items-center mb-6 text-2xl font-semibold text-white dark:text-white">
                             <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
                             Tutor Swan
                         </Link>
-                        <div className="h-[80%] w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-x-auto">
-                            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <div className="lg:h-[80%] h-[800px] w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-x-auto">
+                            <div className="p-6 space-y-4 md:space-y-6 sm:p-8 overflow-auto">
                                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                     Create and account
                                 </h1>
-                                <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                                <form className="space-y-4 md:space-y-6 overflow-auto" onSubmit={handleSubmit}>
                                     <div>
                                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                                         <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jhon Doe" required="" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
