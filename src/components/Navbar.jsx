@@ -71,12 +71,23 @@ function Navbar() {
                         </Link>
                     </ul>
                     <ul className='hidden lg:flex gap-10 items-center text-lg'>
-                        <Link to="/login">
-                            <button className='border-2 border-[#08823F] text-[#08823F] px-5 py-2 rounded-lg'>Sign In</button>
-                        </Link>
-                        <Link to="/register">
-                            <button className='bg-[#08823F] text-white px-5 py-2 rounded-lg'>Sign Up</button>
-                        </Link>
+                        {
+                            localStorage.getItem('token') ?
+                                <>
+                                    <Link to="/dashboard">
+                                        <button className='border-2 border-[#08823F] text-[#08823F] px-5 py-2 rounded-lg'>Dashboard</button>
+                                    </Link>
+                                </>
+                                :
+                                <>
+                                    <Link to="/login">
+                                        <button className='border-2 border-[#08823F] text-[#08823F] px-5 py-2 rounded-lg'>Sign In</button>
+                                    </Link>
+                                    <Link to="/register">
+                                        <button className='bg-[#08823F] text-white px-5 py-2 rounded-lg'>Sign Up</button>
+                                    </Link>
+                                </>
+                        }
                     </ul>
                 </div>
 
