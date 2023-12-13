@@ -191,8 +191,12 @@ function PaperUpload() {
                                                         await axios.post('https://api.imgbb.com/1/upload', body)
                                                             .then(function (response) {
                                                                 console.log(response.data.data.display_url);
-
-                                                                setForm({ ...form, list: [...form.list, { answer_url_list: [...form.list.answer_url_list, response.data.data.display_url], ...item }] });
+                                                                if (form.list.answer_url_list) {
+                                                                    setForm({ ...form, list: [...form.list, { answer_url_list: [...form.list.answer_url_list, response.data.data.display_url], ...item }] });
+                                                                }
+                                                                else {
+                                                                    setForm({ ...form, list: [{ answer_url_list: [response.data.data.display_url], ...item }] });
+                                                                }
                                                             })
                                                             .catch(function (error) {
                                                                 console.log(error);
