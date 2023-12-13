@@ -58,7 +58,7 @@ function PaperUpload() {
 
         const token = localStorage.getItem("token") || sessionStorage.getItem("token");
 
-        axios.post(`http://localhost:8000/paper-pattern/check`, form,
+        axios.post(`https://tutorswan-backend.onrender.com/paper-pattern/check`, form,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`,
