@@ -44,8 +44,20 @@ body::-webkit-scrollbar-thumb {
     border-radius: 40px;
 }
 
-.ant-upload-list-item-actions {
+.ant-upload-list-item-container .ant-tooltip {
     display: none;
+}
+
+.ant-upload-list-item-actions, .ant-upload-icon {
+    display: none;
+}
+
+.ant-upload-list-item-name {
+    color: black!important;
+}
+
+.ant-upload-list-item {
+    color: rgba(0, 0, 0, 0.45)!important;
 }
 
 
