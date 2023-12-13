@@ -192,7 +192,7 @@ function PaperUpload() {
                                                             .then(function (response) {
                                                                 console.log(response.data.data.display_url);
 
-                                                                setForm({ ...form, list: [...form.list, { answer_url_list: [...form.list.answer_url, response.data.data.display_url], ...item }] });
+                                                                setForm({ ...form, list: [...form.list, { answer_url_list: [...form.list.answer_url_list, response.data.data.display_url], ...item }] });
                                                             })
                                                             .catch(function (error) {
                                                                 console.log(error);
