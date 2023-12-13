@@ -177,7 +177,7 @@ function PaperUpload() {
                                                 </h3>
                                             </div>
                                             <div>
-                                                <Dragger className='mx-5' action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188' onChange={async (e) => {
+                                                <Dragger className='mx-5' action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188' multiple onChange={async (e) => {
                                                     const body = new FormData();
                                                     const rf = new FileReader();
 
@@ -192,10 +192,11 @@ function PaperUpload() {
                                                             .then(function (response) {
                                                                 console.log(response.data.data.display_url);
 
-                                                                setForm({ ...form, list: [...form.list, { answer_url: response.data.data.display_url, ...item }] });
+                                                                setForm({ ...form, list: [...form.list, { answer_url_list: [...form.list.answer_url, response.data.data.display_url], ...item }] });
                                                             })
                                                             .catch(function (error) {
                                                                 console.log(error);
+                                                                alert(error);
                                                             });
                                                     }
                                                 }}
