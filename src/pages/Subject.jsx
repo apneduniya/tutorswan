@@ -72,18 +72,6 @@ function Subject() {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer" onClick={() => navigate(`/dashboard/subject/${name}/paper-upload/title`)}>
-                        <td className="px-6 py-4">
-                            Title will be here...
-                        </td>
-                        <td className="px-6 py-4">
-                            11
-                        </td>
-                        <Link>
-                            <td className="px-6 py-4 text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 hover:underline">
-                                Result
-                            </td>
-                        </Link> */}
                             {
                                 paperData.length > 0 ?
                                     paperData.map((item, index) => {
