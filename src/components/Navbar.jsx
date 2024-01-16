@@ -54,7 +54,7 @@ function Navbar() {
             <div className="w-full transparent fixed top-0 left-0 py-6 px-5 flex justify-between items-center bg-white">
                 <Link to="/" className='flex gap-2 items-center cursor-pointer'>
                     <img src={logo} alt="logo" className='h-16 w-16' />
-                    <h1 className="font-bold text-3xl">Tutor Swan</h1>
+                    <h1 className="font-bold text-3xl text-green-600">Tutor Swan</h1>
                 </Link>
                 {/* Hamburger menu for tablets and mobile */}
                 <div className="lg:hidden cursor-pointer" onClick={toggleMobileMenu}>

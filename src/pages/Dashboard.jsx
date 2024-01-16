@@ -127,10 +127,10 @@ function Dashboard() {
                 </nav>
 
                 <aside id="logo-sidebar" className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 ${isSidebarOpen ? "translate-x-0" : ""} dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar`}>
-                    <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+                    <div className={`h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 ${isSidebarOpen ? "w-[100vw]" : ""}`}>
                         <ul className="space-y-2 font-medium">
                             <li>
-                                <Link to="/dashboard/create-subject" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                <Link to="/dashboard/create-subject" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
                                     {/* <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                                     <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
                                     <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
@@ -140,7 +140,7 @@ function Dashboard() {
                                 </Link>
                             </li>
                             <li>
-                                <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="w-full flex items-center justify-between p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                <button onClick={() => {setIsDropdownOpen(!isDropdownOpen)}} className="w-full flex items-center justify-between p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                     <div className='flex'>
                                         <svg className='w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' strokeWidth="1.5" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M5 19.5V5C5 3.89543 5.89543 3 7 3H18.4C18.7314 3 19 3.26863 19 3.6V21" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path><path d="M9 7L15 7" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path><path d="M6.5 15L19 15" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path><path d="M6.5 18L19 18" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path><path d="M6.5 21L19 21" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path><path d="M6.5 18C5.5 18 5 17.3284 5 16.5C5 15.6716 5.5 15 6.5 15" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M6.5 21C5.5 21 5 20.3284 5 19.5C5 18.6716 5.5 18 6.5 18" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                                         <span className="flex-1 ms-3 whitespace-nowrap">Subjects</span>
@@ -154,7 +154,7 @@ function Dashboard() {
                                         {
                                             userData ?
                                                 userData.subjects.map((subject, index) => (
-                                                    <Link key={index} to={`/dashboard/subject/${subject}`} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                                    <Link key={index} to={`/dashboard/subject/${subject}`} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
                                                         <span className="sr-only">Open user menu</span>
                                                         <span className="flex-1 ms-3 whitespace-nowrap">{subject}</span>
                                                     </Link>

@@ -15,7 +15,7 @@ function Home() {
             <div className="w-full min-h-screen flex flex-col md:flex-row justify-between items-center py-48 px-4 md:px-20">
                 <div className='max-w-md md:max-w-[900px] text-center md:text-left mb-8 md:mb-0'>
                     <h1 className='text-3xl md:text-5xl font-bold mb-3 md:mb-5'>
-                        Unlocking Academic Excellence 🎓✨
+                        TutorSwan
                     </h1>
                     <h2 className='text-lg md:text-2xl mb-3 md:mb-5'>
                         Revolutionizing Education Management - A Comprehensive Solution for Teachers, from Registration to Result Analysis! 🚀📚
